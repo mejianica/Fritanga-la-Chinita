@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menú - Fritanga La Chinita</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🍽️ Fritanga La Chinita</h1>
+    <p>Selecciona tus platillos:</p>
+
+    <div class="menu">
+      <div class="item" onclick="agregar(1)">Enchiladas - C$50</div>
+      <div class="item" onclick="agregar(2)">Tajada con queso - C$50</div>
+      <div class="item" onclick="agregar(3)">Carne asada - C$160</div>
+      <div class="item" onclick="agregar(4)">Maduro con queso - C$50</div>
+      <div class="item" onclick="agregar(5)">Torta de papa - C$30</div>
+    </div>
+
+    <div class="orden" id="orden">
+      <h2>Tu orden:</h2>
+      <ul id="lista"></ul>
+      <div class="total" id="total">Total: C$0</div>
+      <div class="dolar" id="dolar"></div>
+      <div class="hora" id="hora"></div>
+      <button onclick="reiniciar()">Reiniciar</button>
+  <button onclick="generarPDF()">📄 Descargar PDF</button>
+  <button onclick="enviarWhatsApp()">📱 Enviar por WhatsApp</button>
+
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

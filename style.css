@@ -1,0 +1,120 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #b9d6f2;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+  padding: 20px; /* Espacio para pantallas pequeñas */
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 730px;
+  width: 100%;
+  background: #061a40;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 30px;
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+p {
+  text-align: center;
+  color: #ffff;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.item {
+  padding: 9px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.item:hover {
+  background: #d6d8db;
+}
+
+.orden {
+  margin-top: 30px;
+  background: #fff3cd;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 6px solid #d62828;
+  justify-content: center;
+}
+
+.orden h2 {
+  margin-top: 0;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background: #d62828;
+  color: white;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #b51f1f;
+}
+
+.dolar {
+  font-style: italic;
+  margin-top: 5px;
+  color: #444;
+}
+
+.hora {
+  margin-top: 5px;
+  font-size: 0.95em;
+  color: #777;
+}
+
+/* Estilos responsive */
+@media (max-width: 768px) {
+  .container {
+    margin: 20px 0;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .item {
+    font-size: 0.95em;
+  }
+
+  button {
+    font-size: 0.9em;
+  }
+}
