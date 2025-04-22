@@ -187,18 +187,19 @@ button:active {
 
 @media (max-width: 600px) {
   .menu {
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móviles */
+    grid-template-columns: repeat(2, 1fr); 
   }
 }
 
 /* Media query para móviles */
 @media (max-width: 430px) {
   .imagen img {
-    height: 60px; /* o el tamaño que prefieras */
+    height: 60px; 
   }
 
   .container .imagen {
-    top: 70px;  /* puedes ajustar también la posición si es necesario */
+    top: 70px;  
     left: 150px;
+    padding: 2px;
   }
 }
