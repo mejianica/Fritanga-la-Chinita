@@ -198,7 +198,7 @@ button:active {
   }
 
   .container .imagen {
-    top: 75px;  /* puedes ajustar también la posición si es necesario */
+    top: 70px;  /* puedes ajustar también la posición si es necesario */
     left: 150px;
   }
 }
