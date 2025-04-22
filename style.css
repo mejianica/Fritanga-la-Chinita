@@ -192,13 +192,13 @@ button:active {
 }
 
 /* Media query para móviles */
-@media (max-width: 600px) {
+@media (max-width: 430px) {
   .imagen img {
     height: 60px; /* o el tamaño que prefieras */
   }
 
   .container .imagen {
-    top: 103px;  /* puedes ajustar también la posición si es necesario */
-    left: 60px;
+    top: 75px;  /* puedes ajustar también la posición si es necesario */
+    left: 150px;
   }
 }
