@@ -6,8 +6,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ocupa toda la altura de la pantalla */
-  padding: 20px; /* Espacio para pantallas pequeñas */
+  min-height: 100vh;
+  padding: 20px;
   box-sizing: border-box;
 }
 
@@ -28,15 +28,15 @@ h1 {
 
 p {
   text-align: center;
-  color: #ffff;
+  color: #ffffff;
 }
 
 .menu {
   display: flex;
   flex-direction: column;
   gap: 10px;
- width: 100%;
- align-items: center;
+  width: 100%;
+  align-items: center;
 }
 
 .item {
@@ -60,11 +60,41 @@ p {
   padding: 20px;
   border-radius: 10px;
   border-left: 6px solid #d62828;
-  justify-content: center;
 }
 
 .orden h2 {
   margin-top: 0;
+}
+
+.orden ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  max-height: 180px;
+  overflow-y: auto;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.orden ul li {
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff8e1;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.88em;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.orden ul li button {
+  background: transparent;
+  border: none;
+  font-size: 1em;
+  cursor: pointer;
+  color: #d62828;
+  margin-left: 8px;
 }
 
 .total {
@@ -73,34 +103,67 @@ p {
   margin-top: 10px;
 }
 
-button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  border: none;
-  background: #d62828;
-  color: white;
-  border-radius: 8px;
-  font-size: 1em;
-  cursor: pointer;
-}
-
-.enviar{
-  background-color: rgba(41, 226, 41, 0.863);
-}
-
-.dolar {
-  font-style: italic;
-  margin-top: 5px;
-  color: #444;
-}
-
 .hora {
   margin-top: 5px;
   font-size: 0.95em;
   color: #777;
 }
 
-/* Estilos responsive */
+button {
+  margin-top: 15px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(to right, #d62828, #a61b1b);
+  color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(to right, #b32222, #911414);
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+button:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.enviar {
+  background: linear-gradient(to right, #28a745, #218838);
+}
+
+.enviar:hover {
+  background: linear-gradient(to right, #218838, #1e7e34);
+}
+
+.generar {
+  background: linear-gradient(to right, #007bff, #0056b3);
+}
+
+.generar:hover {
+  background: linear-gradient(to right, #0056b3, #004085);
+}
+
+.reiniciar {
+  background: linear-gradient(to right, #ffc107, #e0a800);
+  color: #333;
+}
+
+.reiniciar:hover {
+  background: linear-gradient(to right, #e0a800, #c69500);
+}
+
+#cantidadProductos {
+  color: black;
+  text-align: left;
+}
+
 @media (max-width: 768px) {
   .container {
     margin: 20px 0;
@@ -114,17 +177,11 @@ button {
   }
 
   .item {
-  font-size: 0.95em;
-  width: 90%;
-    
+    font-size: 0.95em;
+    width: 90%;
   }
 
   button {
     font-size: 0.9em;
   }
-}
-
-#cantidadProductos{
-  color: black;
-  text-align: left;
 }
