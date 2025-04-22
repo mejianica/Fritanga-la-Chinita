@@ -80,13 +80,15 @@ p {
 .orden ul li {
   margin-bottom: 5px;
   display: flex;
+  height: auto;
   justify-content: space-between;
   align-items: center;
   background: #fff8e1;
-  padding: 6px 10px;
+  padding: 0;
   border-radius: 6px;
   font-size: 0.88em;
   box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  
 }
 
 .orden ul li button {
