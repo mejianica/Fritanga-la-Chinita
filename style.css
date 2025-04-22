@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #b9d6f2;
+  /* background: #b9d6f2; */
   color: #333;
   display: flex;
   justify-content: center;
@@ -9,12 +9,13 @@ body {
   min-height: 100vh;
   padding: 20px;
   box-sizing: border-box;
+  background-color: rgb(36, 36, 26);
 }
 
 .container {
   max-width: 700px;
   width: 100%;
-  background: #061a40;
+  background: #1a384d;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   padding: 30px;
