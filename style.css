@@ -57,10 +57,10 @@ p {
 
 .orden {
   margin-top: 30px;
-  background: #fff3cd;
+  background: #f3f2ef;
   padding: 20px;
   border-radius: 10px;
-  border-left: 6px solid #d62828;
+  border-left: 6px solid #2ca2d1;
 }
 
 .orden h2 {
@@ -78,27 +78,16 @@ p {
 }
 
 .orden ul li {
-  margin-bottom: 5px;
-  display: flex;
-  height: auto;
-  justify-content: space-between;
-  align-items: center;
-  background: #fff8e1;
-  padding: 0;
+  display: flex;             
+  align-items: center;       
+  justify-content: space-between;  
+  padding: 0px 10px;
+  background-color: #cbd8dd;
+  margin-bottom: 2px;
   border-radius: 6px;
-  font-size: 0.88em;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-  
+  height: 23px;
 }
 
-.orden ul li button {
-  background: transparent;
-  border: none;
-  font-size: 1em;
-  cursor: pointer;
-  color: #d62828;
-  margin-left: 8px;
-}
 
 .total {
   font-weight: bold;
@@ -112,7 +101,7 @@ p {
   color: #777;
 }
 
-button {
+.orden button {
   margin-top: 15px;
   padding: 10px 25px;
   border: none;
@@ -120,12 +109,18 @@ button {
   font-size: 1em;
   font-weight: 600;
   cursor: pointer;
-  background: linear-gradient(to right, #d62828, #a61b1b);
-  color: white;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
 }
-
+.orden .reiniciar{
+  background-color: #383225;
+  color: white;
+}
+.orden .enviar{
+  background-color: green;
+  color: white;
+}
+/* 
 button:hover {
   background: linear-gradient(to right, #b32222, #911414);
   transform: scale(1.03);
@@ -135,32 +130,8 @@ button:hover {
 button:active {
   transform: scale(0.98);
   box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
+} */
 
-.enviar {
-  background: linear-gradient(to right, #28a745, #218838);
-}
-
-.enviar:hover {
-  background: linear-gradient(to right, #218838, #1e7e34);
-}
-
-.generar {
-  background: linear-gradient(to right, #007bff, #0056b3);
-}
-
-.generar:hover {
-  background: linear-gradient(to right, #0056b3, #004085);
-}
-
-.reiniciar {
-  background: linear-gradient(to right, #ffc107, #e0a800);
-  color: #333;
-}
-
-.reiniciar:hover {
-  background: linear-gradient(to right, #e0a800, #c69500);
-}
 
 #cantidadProductos {
   color: black;
