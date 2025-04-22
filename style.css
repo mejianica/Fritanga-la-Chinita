@@ -21,12 +21,18 @@ body {
   padding: 30px;
   position: relative;
 }
-@media (max-width: 600px) {
-  .menu {
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móviles */
-  }
+.container .imagen{
+  position: absolute;
+  border-radius: 75px;
+  background-color: #c5d4da;
+  top: 70px;
+  left: 50px;
+  box-shadow: 1px 1px 10px  rgb(61, 236, 134);
 }
-
+.imagen img{
+  height: 100px;
+  
+}
 h1 {
   text-align: center;
   color: #ffffff;
