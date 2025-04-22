@@ -123,3 +123,8 @@ button {
     font-size: 0.9em;
   }
 }
+
+#cantidadProductos{
+  color: black;
+  text-align: left;
+}

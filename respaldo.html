@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fritanga La Chinita - Pedidos</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #fff8f0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #d63a24;
+    }
+
+    .menu button {
+      margin: 5px;
+      padding: 10px 15px;
+      background-color: #d63a24;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .menu button:hover {
+      background-color: #b92f1f;
+    }
+
+    #orden {
+      position: absolute;
+      right: 20px;
+      top: 100px;
+      width: 320px;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    #lista {
+      list-style: none;
+      padding: 0;
+    }
+
+    #lista li {
+      margin-bottom: 10px;
+      background-color: #ffe3d3;
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+    #lista button {
+      float: right;
+      background: transparent;
+      border: none;
+      font-size: 18px;
+      color: red;
+      cursor: pointer;
+    }
+
+    #total, #hora, #cantidadProductos {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .acciones {
+      margin-top: 20px;
+    }
+
+    .acciones button {
+      margin-right: 10px;
+      padding: 8px 12px;
+      border: none;
+      background-color: #444;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      #orden {
+        position: static;
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h1>🍽️ Fritanga La Chinita</h1>
+
+<div class="menu">
+  <button onclick="agregar(1)">🌮 Enchiladas</button>
+  <button onclick="agregar(2)">🧀 Tajada con queso</button>
+  <button onclick="agregar(3)">🥩 Carne asada</button>
+  <button onclick="agregar(4)">🍌 Maduro con queso</button>
+  <button onclick="agregar(5)">🥔 Torta de papa</button>
+</div>
+
+<div id="orden">
+  <ul id="lista"></ul>
+  <p id="total">Total: C$0</p>
+  <p id="cantidadProductos"></p>
+  <p id="hora"></p>
+
+  <div class="acciones">
+    <button onclick="reiniciar()">🗑️ Reiniciar</button>
+    <button onclick="generarPDF()">🖨️ Imprimir</button>
+    <button onclick="enviarWhatsApp()">📤 WhatsApp</button>
+  </div>
+</div>
+
+<script>
+  let menu = {
+    1: { nombre: "Enchiladas", precio: 50 },
+    2: { nombre: "Tajada con queso", precio: 50 },
+    3: { nombre: "Carne asada", precio: 160 },
+    4: { nombre: "Maduro con queso", precio: 50 },
+    5: { nombre: "Torta de papa", precio: 30 }
+  };
+
+  let total = 0;
+  let numeroOrden = 1;
+
+  let lista = document.getElementById("lista");
+  let totalEl = document.getElementById("total");
+  let horaEl = document.getElementById("hora");
+  let cantidadProductosEl = document.getElementById("cantidadProductos");
+
+  function agregar(opcion) {
+    let platillo = menu[opcion];
+    let items = lista.getElementsByTagName("li");
+    let encontrado = false;
+
+    for (let i = 0; i < items.length; i++) {
+      let texto = items[i].innerText;
+      if (texto.includes(platillo.nombre)) {
+        let match = texto.match(/x(\d+)/);
+        let cantidad = match ? parseInt(match[1]) + 1 : 2;
+
+        items[i].firstChild.nodeValue = `✅ ${platillo.nombre} x${cantidad} - C$${platillo.precio * cantidad}`;
+        total += platillo.precio;
+        actualizarTotales();
+        encontrado = true;
+        break;
+      }
+    }
+
+    if (!encontrado) {
+      let li = document.createElement("li");
+
+      let btnEliminar = document.createElement("button");
+      btnEliminar.innerText = "❌";
+      btnEliminar.onclick = function () {
+        lista.removeChild(li);
+        let match = li.innerText.match(/x(\d+)/);
+        let cantidad = match ? parseInt(match[1]) : 1;
+        total -= platillo.precio * cantidad;
+        actualizarTotales();
+      };
+
+      li.innerText = `✅ ${platillo.nombre} x1 - C$${platillo.precio}`;
+      li.appendChild(btnEliminar);
+      lista.appendChild(li);
+
+      total += platillo.precio;
+      actualizarTotales();
+    }
+  }
+
+  function actualizarTotales() {
+    totalEl.innerText = "Total: C$" + total;
+
+    let cantidad = 0;
+    const items = document.querySelectorAll("#lista li");
+    items.forEach(item => {
+      let match = item.innerText.match(/x(\d+)/);
+      cantidad += match ? parseInt(match[1]) : 1;
+    });
+
+    cantidadProductosEl.innerText = `🧾 Total de productos: ${cantidad}`;
+    horaEl.innerText = "🕒 Pedido realizado a las " + new Date().toLocaleTimeString();
+  }
+
+  function reiniciar() {
+    lista.innerHTML = "";
+    total = 0;
+    totalEl.innerText = "Total: C$0";
+    cantidadProductosEl.innerText = "";
+    horaEl.innerText = `🧾 Orden #${String(numeroOrden).padStart(3, '0')}`;
+    numeroOrden++;
+  }
+
+  function generarPDF() {
+    const contenido = document.getElementById("orden").innerText;
+    const ventana = window.open('', '', 'height=600,width=800');
+    ventana.document.write('<html><head><title>Resumen de Pedido</title></head><body>');
+    ventana.document.write('<pre>' + contenido + '</pre>');
+    ventana.document.write('</body></html>');
+    ventana.document.close();
+    ventana.print();
+  }
+
+  function enviarWhatsApp() {
+    let mensaje = "📋 Pedido Fritanga La Chinita:%0A";
+    const items = document.querySelectorAll("#lista li");
+    items.forEach(item => {
+      mensaje += item.innerText + "%0A";
+    });
+    mensaje += totalEl.innerText + "%0A";
+    mensaje += cantidadProductosEl.innerText + "%0A";
+    mensaje += horaEl.innerText + "%0A";
+
+    const numero = "50589277326";
+    const url = "https://wa.me/" + numero + "?text=" + mensaje;
+    window.open(url, '_blank');
+  }
+</script>
+
+</body>
+</html>

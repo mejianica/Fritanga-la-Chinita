@@ -11,7 +11,12 @@ let tasaCambio = 36.5; // 1 USD = 36.5 córdobas
 let lista = document.getElementById("lista");
 let totalEl = document.getElementById("total");
 let horaEl = document.getElementById("hora");
-let dolarEl = document.getElementById("dolar");
+let numeroOrden = 1;
+let sonido = new Audio("ding.mp3");
+sonido.play();
+
+
+
 
 function agregar(opcion) {
   let platillo = menu[opcion];
@@ -37,17 +42,28 @@ function agregar(opcion) {
 
 function actualizarTotales() {
   totalEl.innerText = "Total: C$" + total;
-  dolarEl.innerText = `(≈ $${(total / tasaCambio).toFixed(2)} USD)`;
+
+  let cantidad = 0;
+  const items = document.querySelectorAll("#lista li");
+  items.forEach(item => {
+    let match = item.innerText.match(/x(\d+)/);
+    cantidad += match ? parseInt(match[1]) : 1;
+  });
+
+  document.getElementById("cantidadProductos").innerText = `🧾 Total de productos: ${cantidad}`;
   horaEl.innerText = "🕒 Pedido realizado a las " + new Date().toLocaleTimeString();
 }
+
 
 function reiniciar() {
   lista.innerHTML = "";
   total = 0;
   totalEl.innerText = "Total: C$0";
-  dolarEl.innerText = "";
-  horaEl.innerText = "";
+  document.getElementById("cantidadProductos").innerText = "";
+  horaEl.innerText = `🧾 Orden #${String(numeroOrden).padStart(3, '0')}`;
+  numeroOrden++;
 }
+
 
 function generarPDF() {
   const contenido = document.getElementById("orden").innerText;
@@ -67,7 +83,7 @@ function enviarWhatsApp() {
     mensaje += item.innerText + "%0A";
   });
   mensaje += totalEl.innerText + "%0A";
-  mensaje += dolarEl.innerText + "%0A";
+  // mensaje += dolarEl.innerText + "%0A";
   mensaje += horaEl.innerText + "%0A";
   
   const numero = "50589277326"; // Número al que se enviará el mensaje
