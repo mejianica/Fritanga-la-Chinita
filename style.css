@@ -27,9 +27,11 @@ body {
   background-color: #c5d4da;
   top: 70px;
   left: 50px;
+  box-shadow: 1px 1px 10px  rgb(61, 236, 134);
 }
 .imagen img{
   height: 100px;
+  
 }
 h1 {
   text-align: center;
@@ -55,15 +57,17 @@ p {
   width: 100%; /* Antes era 70% */
   text-align: center;
   padding: 9px;
-  background: #fff;
-  border: 1px solid #ccc;
+  /* background: #1b1a199f; */
+  background-color: #394761;
+  border: 1px solid #f3cbe7;
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.2s;
+  color: whitesmoke;
 }
 
 .item:hover {
-  background: #d6d8db;
+  background: #1b1a1949;
 }
 
 .orden {
@@ -71,7 +75,7 @@ p {
   background: #f3f2ef;
   padding: 20px;
   border-radius: 10px;
-  border-left: 6px solid #2ca2d1;
+  border-left: 6px solid rgba(0, 0, 0, 0.164);
 }
 
 .orden h2 {
