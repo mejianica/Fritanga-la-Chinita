@@ -17,7 +17,7 @@ body {
   width: 100%;
   background: #1a384d;
   border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 1px 1px 6px #FFF800;
   padding: 30px;
   position: relative;
 }
@@ -35,7 +35,7 @@ body {
 }
 h1 {
   text-align: center;
-  color: #ffffff;
+  color: #e6e03d;
   margin-bottom: 70px;
 }
 
@@ -69,7 +69,6 @@ p {
 .item:hover {
   background: #1b1a1949;
 }
-
 .orden {
   margin-top: 30px;
   background: #f3f2ef;
@@ -77,11 +76,9 @@ p {
   border-radius: 10px;
   border-left: 6px solid rgba(0, 0, 0, 0.164);
 }
-
 .orden h2 {
   margin-top: 0;
 }
-
 .orden ul {
   padding: 0;
   margin: 0;
@@ -102,8 +99,6 @@ p {
   border-radius: 6px;
   height: 23px;
 }
-
-
 .total {
   font-weight: bold;
   font-size: 1.2em;
@@ -114,10 +109,10 @@ p {
   margin-top: 5px;
   font-size: 0.95em;
   color: #777;
+  margin-bottom: 10px;
 }
 
 .orden button {
-  margin-top: 15px;
   padding: 10px 25px;
   border: none;
   border-radius: 10px;
@@ -126,6 +121,12 @@ p {
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
+}
+.orden .btns{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 .orden .reiniciar{
   background-color: #383225;
@@ -193,15 +194,14 @@ button:active {
   button {
     font-size: 0.9em;
   }
+  .orden .btns{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .orden button {
+    width: 100%;
+  }
+  
 }
-
-/* @media (max-width: 480px) {
-  .menu {
-    grid-template-columns: 1fr;
-  }
-
-  .menu::before {
-    display: none;
-  }
-} */
 
