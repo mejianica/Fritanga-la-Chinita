@@ -4,7 +4,9 @@ let menu = {
   3: { nombre: "Carne asada", precio: 160 },
   4: { nombre: "Maduro con queso", precio: 50 },
   5: { nombre: "Torta de papa", precio: 30 },
-  6: { nombre: "Pescozon", precio: 30 }
+  6: { nombre: "Pescozon", precio: 30 },
+  7: { nombre: "Carne Desmenuzada", precio: 150 },
+  8: { nombre: "extra de queso", precio: 30 }
 };
 
 let total = 0;
