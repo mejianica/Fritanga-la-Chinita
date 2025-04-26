@@ -132,7 +132,7 @@ function actualizarEstadoNegocio() {
   }
 
   if (abierto) {
-    estado.innerHTML = "<strong style='color: green;'>🟢 ¡Estamos abiertos!</strong><br>Horario: Jueves a Sábado de 5:00 PM - 10:30 PM";
+    estado.innerHTML = "<strong style='color: green;'>🟢 ¡Abierto!</strong><br>Horario: Jueves a Sábado de 5:00 PM - 10:30 PM";
   } else {
     estado.innerHTML = "<strong style='color: red;'>🔴 Cerrado</strong><br>Horario: Jueves a Sábado de 5:00 PM - 10:30 PM";
   }
