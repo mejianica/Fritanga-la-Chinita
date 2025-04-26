@@ -105,3 +105,41 @@ function enviarWhatsApp() {
   const url = "https://wa.me/" + numero + "?text=" + mensaje;
   window.open(url, '_blank');
 }
+
+
+function actualizarEstadoNegocio() {
+  const estado = document.getElementById("estadoNegocio");
+
+  const ahora = new Date();
+  const dia = ahora.getDay(); // 0: Domingo, 1: Lunes, ..., 6: Sábado
+  const hora = ahora.getHours();
+  const minutos = ahora.getMinutes();
+
+  // Horario: Jueves (4), Viernes (5), Sábado (6) de 5:00 PM a 10:30 PM
+  const diasAbierto = [4, 5, 6];
+  const horaApertura = 17; // 5 PM
+  const horaCierre = 22;   // 10 PM
+  const minutosCierre = 30; // 10:30 PM
+
+  let abierto = false;
+
+  if (diasAbierto.includes(dia)) {
+    if (hora > horaApertura && (hora < horaCierre || (hora === horaCierre && minutos <= minutosCierre))) {
+      abierto = true;
+    } else if (hora === horaApertura && minutos >= 0) {
+      abierto = true;
+    }
+  }
+
+  if (abierto) {
+    estado.innerHTML = "<strong style='color: green;'>🟢 ¡Estamos abiertos!</strong><br>Horario: Jueves a Sábado de 5:00 PM - 10:30 PM";
+  } else {
+    estado.innerHTML = "<strong style='color: red;'>🔴 Cerrado</strong><br>Horario: Jueves a Sábado de 5:00 PM - 10:30 PM";
+  }
+}
+
+// Llamarlo cuando cargue la página
+actualizarEstadoNegocio();
+
+// Opcional: actualizar cada minuto por si la página se deja abierta
+setInterval(actualizarEstadoNegocio, 60000);
