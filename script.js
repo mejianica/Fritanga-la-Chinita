@@ -1,11 +1,11 @@
 let menu = {
   1: { nombre: "Enchiladas", precio: 50, agotado: false },
   2: { nombre: "Tajada con queso", precio: 50, agotado: false },
-  3: { nombre: "Carne asada", precio: 160, agotado: true },
+  3: { nombre: "Carne asada", precio: 160, agotado: false },
   4: { nombre: "Maduro con queso", precio: 50, agotado: false },
   5: { nombre: "Torta de papa", precio: 30, agotado: false },
   6: { nombre: "Pescozon", precio: 30, agotado: true },
-  7: { nombre: "Carne Desmenuzada", precio: 150, agotado: true },
+  7: { nombre: "Carne Desmenuzada", precio: 150, agotado: false },
   8: { nombre: "Extra de queso", precio: 30, agotado: false }
 };
 
@@ -119,7 +119,7 @@ function actualizarEstadoNegocio() {
   const diasAbierto = [4, 5, 6];
   const horaApertura = 17; // 5 PM
   const horaCierre = 22;   // 10 PM
-  const minutosCierre = 30; // 10:00 PM
+  const minutosCierre = 10; // 10:00 PM
 
   let abierto = false;
 
