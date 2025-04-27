@@ -1,12 +1,12 @@
 let menu = {
-  1: { nombre: "Enchiladas", precio: 50 },
-  2: { nombre: "Tajada con queso", precio: 50 },
-  3: { nombre: "Carne asada", precio: 160 },
-  4: { nombre: "Maduro con queso", precio: 50 },
-  5: { nombre: "Torta de papa", precio: 30 },
-  6: { nombre: "Pescozon", precio: 30 },
-  7: { nombre: "Carne Desmenuzada", precio: 150 },
-  8: { nombre: "extra de queso", precio: 30 }
+  1: { nombre: "Enchiladas", precio: 50, agotado: false },
+  2: { nombre: "Tajada con queso", precio: 50, agotado: false },
+  3: { nombre: "Carne asada", precio: 160, agotado: true },
+  4: { nombre: "Maduro con queso", precio: 50, agotado: false },
+  5: { nombre: "Torta de papa", precio: 30, agotado: false },
+  6: { nombre: "Pescozon", precio: 30, agotado: false },
+  7: { nombre: "Carne Desmenuzada", precio: 150, agotado: false },
+  8: { nombre: "Extra de queso", precio: 30, agotado: false }
 };
 
 let total = 0;
@@ -143,3 +143,29 @@ actualizarEstadoNegocio();
 
 // Opcional: actualizar cada minuto por si la página se deja abierta
 setInterval(actualizarEstadoNegocio, 60000);
+
+
+function dibujarMenu() {
+  const menuDiv = document.querySelector(".menu");
+  menuDiv.innerHTML = ""; // Limpiar el menú anterior
+
+  for (let id in menu) {
+    const platillo = menu[id];
+    const itemDiv = document.createElement("div");
+    itemDiv.className = "item";
+
+    if (platillo.agotado) {
+      itemDiv.classList.add("agotado");
+      itemDiv.innerText = `${platillo.nombre} - Agotado`;
+    } else {
+      itemDiv.innerText = `${platillo.nombre} - C$${platillo.precio}`;
+      itemDiv.onclick = function() {
+        agregar(id);
+      };
+    }
+
+    menuDiv.appendChild(itemDiv);
+  }
+}
+
+dibujarMenu();
