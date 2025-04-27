@@ -119,7 +119,7 @@ function actualizarEstadoNegocio() {
   const diasAbierto = [4, 5, 6];
   const horaApertura = 17; // 5 PM
   const horaCierre = 22;   // 10 PM
-  const minutosCierre = 30; // 10:30 PM
+  const minutosCierre = 30; // 10:00 PM
 
   let abierto = false;
 
@@ -132,9 +132,9 @@ function actualizarEstadoNegocio() {
   }
 
   if (abierto) {
-    estado.innerHTML = "<strong style='color: green;'>🟢 ¡Abierto!</strong><br>Horario: Jueves a Sábado de 5:00 PM - 10:30 PM";
+    estado.innerHTML = "<strong style='color: green;'>🟢 Abierto</strong><br>Horario: De Jueves a Sábado de 5:00 PM - 10:00 PM";
   } else {
-    estado.innerHTML = "<strong style='color: red;'>🔴 Cerrado</strong><br>Horario: Jueves a Sábado de 5:00 PM - 10:30 PM";
+    estado.innerHTML = "<strong style='color: red;'>🔴 Cerrado</strong><br>Horario: De Jueves a Sábado de 5:00 PM - 10:00 PM";
   }
 }
 
