@@ -1,13 +1,14 @@
 let menu = {
-  1: { nombre: "Enchiladas", precio: 50, agotado: false },
-  2: { nombre: "Tajada con queso", precio: 50, agotado: false },
-  3: { nombre: "Carne asada", precio: 160, agotado: false },
-  4: { nombre: "Maduro con queso", precio: 50, agotado: false },
-  5: { nombre: "Torta de papa", precio: 30, agotado: false },
-  6: { nombre: "Pescozon", precio: 30, agotado: false },
-  7: { nombre: "Carne Desmenuzada", precio: 150, agotado: false },
-  8: { nombre: "Extra de queso", precio: 30, agotado: false }
+  1: { nombre: "Enchiladas", precio: 50, cantidad: 10, agotado: false },
+  2: { nombre: "Tajada con queso", precio: 50, cantidad: 5, agotado: false },
+  3: { nombre: "Carne asada", precio: 160, cantidad: 3, agotado: false },
+  4: { nombre: "Maduro con queso", precio: 50, cantidad: 4, agotado: false },
+  5: { nombre: "Torta de papa", precio: 30, cantidad: 4, agotado: false },
+  6: { nombre: "Pescozon", precio: 30, cantidad: 5, agotado: false },
+  7: { nombre: "Carne Desmenuzada", precio: 150, cantidad: 3, agotado: false },
+  8: { nombre: "Extra de queso", precio: 30, cantidad: 6, agotado: false }
 };
+
 
 let total = 0;
 let tasaCambio = 36.5; // 1 USD = 36.5 córdobas
@@ -20,6 +21,20 @@ sonido.play();
 
 function agregar(opcion) {
   let platillo = menu[opcion];
+
+  // Verificar si está agotado
+  if (platillo.agotado || platillo.cantidad <= 0) {
+    alert(`${platillo.nombre} está agotado.`);
+    return;
+  }
+
+  platillo.cantidad--; // Reducir inventario
+
+  if (platillo.cantidad <= 0) {
+    platillo.agotado = true;
+    dibujarMenu(); // Redibuja el menú para reflejar el cambio
+  }
+
   let items = lista.getElementsByTagName("li");
   let encontrado = false;
 
@@ -169,3 +184,4 @@ function dibujarMenu() {
 }
 
 dibujarMenu();
+
