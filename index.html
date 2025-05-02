@@ -1,108 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>01 de mayo</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #e0e0e0, #ffffff);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      animation: fadeInBody 2s ease-in;
-    }
-
-    @keyframes fadeInBody {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .container {
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 0 40px 0 #0007;
-      box-sizing: border-box;
-      max-width: 500px;
-      transform: translateY(30px);
-      animation: slideIn 1.2s ease forwards;
-      opacity: 0;
-    }
-
-    @keyframes slideIn {
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    .container img {
-      width: 80px;
-      height: 100px;
-      margin-bottom: 20px;
-      animation: pulse 2s infinite ease-in-out;
-    }
-
-    .icon {
-      font-size: 60px;
-      color: #ff9800;
-      margin-bottom: 20px;
-      animation: glow 2s infinite ease-in-out;
-    }
-
-    @keyframes glow {
-      0%, 100% { text-shadow: 0 0 5px #ff9800, 0 0 10px #ffb300; }
-      50% { text-shadow: 0 0 20px #ffa726, 0 0 30px #ffb74d; }
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    h1 {
-      color: #333;
-      font-size: 28px;
-      margin-bottom: 10px;
-      transition: color 0.3s;
-    }
-
-    p {
-      color: #666;
-      font-size: 18px;
-      margin-bottom: 5px;
-      transition: opacity 0.3s;
-    }
-
-    .container:hover h1 {
-      color: #000;
-    }
-
-    .container:hover p {
-      opacity: 0.9;
-    }
-
-    #Chinita{
-        color: #ff9800;
-    }
-  </style>
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menú - Fritanga La Chinita</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div class="container">
-    <h1>¡FELIZ DIA DEL TRABAJADOR!</h1>
-    <img src="./img/laChinita.png" alt="">
-    <p> <strong>Cerrado por festivo 01 de mayo</strong></p>
-    <p>Volvemos el dia viernes</p>
-    <!-- <p>Desde las <strong>10:00 AM</strong> hasta las <strong>12:00 PM</strong>.</p> -->
-    <p>Gracias por su comprensión.</p>
-     <p id="Chinita">Fritanga La Chinita</p>
+    <h1>Fritanga La Chinita</h1>
+    <div class="imagen">
+      <img src="img/laChinita.png" alt="">
+    </div>
+    <p>Selecciona tus platillos:</p>
+    <p id="estadoNegocio"></p>
+
+    <div class="menu">
+      <div class="item" onclick="agregar(1)">Enchiladas - C$50</div>
+      <div class="item" onclick="agregar(2)">Tajada con queso - C$50</div>
+      <div class="item" onclick="agregar(3)">Carne asada - C$160</div>
+      <div class="item" onclick="agregar(4)">Maduro con queso - C$50</div>
+      <div class="item" onclick="agregar(5)">Torta de papa - C$30</div>
+      <div class="item" onclick="agregar(6)">Pescozon - C$30</div>
+      <div class="item" onclick="agregar(7)">Carne Desmenuzada - C$150</div>
+      <div class="item" onclick="agregar(8)">Extra de queso - C$30</div>
+    </div>
+    <div class="orden" id="orden">
+      <h2>Tu orden:</h2>
+      <ul id="lista"></ul>
+      <div class="total" id="total">Total: C$0</div>
+      <p id="cantidadProductos"></p>
+      <!-- <div class="dolar" id="dolar"></div> -->
+      <div class="hora" id="hora"></div>
+      <div class="btns">
+        <button class="reiniciar" onclick="reiniciar()">Reiniciar</button>
+        <!-- <button onclick="generarPDF()">📄 Descargar PDF</button> -->
+        <button class="enviar" onclick="enviarWhatsApp()">📱 Enviar por WhatsApp</button>
+      </div>
+    </div>
+    <footer class="footer">
+      <p>© 2025 Fritanga La Chinita. Todos los derechos reservados.</p>
+    </footer>
+
+    
   </div>
+  <script src="script.js"></script>
 </body>
+
 </html>
