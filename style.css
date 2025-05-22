@@ -216,7 +216,7 @@ button:active {
   cursor: not-allowed;
   pointer-events: none;
 }
-
+/* 
 .delivery-icon {
   font-size: 10px;
   color: #e6e03d;
@@ -228,4 +228,4 @@ button:active {
   height: 100px;
  
   
-}
+} */
