@@ -216,3 +216,16 @@ button:active {
   cursor: not-allowed;
   pointer-events: none;
 }
+
+.delivery-icon {
+  font-size: 10px;
+  color: #e6e03d;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  width: 200px;
+  height: 100px;
+ 
+  
+}
