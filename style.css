@@ -21,8 +21,7 @@ body {
   padding: 5px;
   position: relative;
 }
-
-.container .imagen {
+.container .imagen{
   position: absolute;
   border-radius: 75px;
   background-color: #e2e8f0;
